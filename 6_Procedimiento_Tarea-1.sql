@@ -1,3 +1,5 @@
+-- Procedimiento para eliminar un registro de la tabla requests
+--INICIO DEL PROCEDIMIENTO
 CREATE OR ALTER PROCEDURE Pokequeue.delete_pokerequest
     @id INT
 AS 
@@ -9,3 +11,4 @@ OUTPUT DELETED.url AS deleted_url
 WHERE id = @id;
 
 EXEC Pokequeue.delete_pokerequest 45;
+--FIN DEL PROCEDIMIENTO

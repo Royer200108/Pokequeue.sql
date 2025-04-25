@@ -1,3 +1,5 @@
+-- Procedimiento para actualizar el estado de una solicitud de Pokémon
+-- INICIO DEL PROCEDIMIENTO
 CREATE PROCEDURE Pokequeue.update_pokerequest(
     @id INT,
     @status NVARCHAR(255),
@@ -14,12 +16,10 @@ SET
 WHERE id = @id
 
 SELECT 1 AS COMPLETED;
+-- FIN DEL PROCEDIMIENTO
 
-SELECT * FROM Pokequeue.[requests];
-DELETE FROM Pokequeue.[requests] WHERE id < 24;
 
-SELECT * FROM Pokequeue.[statuses] WHERE description = 'inprogress'
-
+-- Consulta utilizada para extraer las solicitudes de Pokemon que se han realizado
 select 
             r.id as ReportId,
             s.description as Status,
@@ -29,5 +29,3 @@ select
             r.updated
         from pokequeue.requests r
         inner join pokequeue.statuses s on r.id_status = s.id
-
-UPDATE Pokequeue.[requests] SET url = 'https://samypokequeuedev.blob.core.windows.net/reports/poke_report_25.csv' where id = 25

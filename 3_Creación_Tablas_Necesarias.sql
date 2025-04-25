@@ -1,5 +1,6 @@
 use mypokequeuedb;
 
+--Creando tabla de Statuses
 DROP TABLE IF EXISTS Pokequeue.[statuses];
 
 CREATE TABLE Pokequeue.[statuses](
@@ -11,6 +12,7 @@ INSERT INTO Pokequeue.[statuses] ([description]) VALUES ('sent'), ('inprogress')
 
 SELECT * FROM Pokequeue.[statuses];
 
+--Creando tabla de Requests
 DROP TABLE IF EXISTS Pokequeue.[requests];
 
 CREATE TABLE Pokequeue.[requests](
@@ -24,10 +26,9 @@ CREATE TABLE Pokequeue.[requests](
 )
 
 --Alterando la tabla para hacer la Tarea-3
+    -- Se agrega la columna sample_size a la tabla requests
 ALTER TABLE Pokequeue.[requests] ADD sample_size INT null;
 
-SELECT * FROM Pokequeue.[requests];
-DELETE FROM Pokequeue.[requests] WHERE id = 76;
 
 --Ver todas las tablas creadas
 select * from sys.tables;

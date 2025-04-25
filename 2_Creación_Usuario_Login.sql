@@ -5,7 +5,7 @@ create login PokeQueueApp with PASSWORD = 'Hol@Mundo2025!';
 --Creando un nuevo usuario
 CREATE user PokeQueueAppUser for login PokeQueueApp;
 
---Otrorgando permisos al nuevo usuario (restringiendo acceso a lo demas)
+--Otorgando permisos al nuevo usuario (restringiendo acceso a lo demas)
 GRANT SELECT ON SCHEMA :: Pokequeue TO PokeQueueAppUser;
 GRANT INSERT ON SCHEMA :: Pokequeue TO PokeQueueAppUser;
 GRANT UPDATE ON SCHEMA :: Pokequeue TO PokeQueueAppUser;
